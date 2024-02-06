@@ -1,0 +1,18 @@
+package com.example.movieapp.data.datasourceimpl
+
+import com.example.movieapp.data.datasource.MovieCacheDataSource
+import com.example.movieapp.data.model.Movie
+
+class MovieCacheDataSourceImpl:MovieCacheDataSource {
+    private var movieList=ArrayList<Movie>()
+
+
+    override suspend fun getMoviesFromCache(): List<Movie> {
+        return movieList
+    }
+
+    override suspend fun saveMoviesToCashe(movie: List<Movie>) {
+        movieList.clear()
+        movieList=ArrayList(movie)
+    }
+}
